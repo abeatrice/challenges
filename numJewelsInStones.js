@@ -2,26 +2,11 @@
  * Determine how many of the given stones 
  * are of one of the jewel types given  
  * 
- * @param {string} jewels
- * @param {string} stones
+ * @param {string} J
+ * @param {string} S
  * @return {number}
  */
-var numJewelsInStones = function(jewels, stones) {
-    
-    let count = 0;
-
-    for(i=0; i < stones.length; i++) {
-        for(j=0; j < jewels.length; j++) {
-            if (stones[i] === jewels[j]) {
-                count++;;
-                break;
-            }
-        }
-    }
-
-    return count;
-
-};
+const numJewelsInStones = (J, S) => S.split('').filter(char => J.indexOf(char) !== -1).length;
 
 console.log(numJewelsInStones("aA", "aAAbb"));
 console.log(numJewelsInStones("abcABC", "aCba"));
