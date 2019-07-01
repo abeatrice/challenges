@@ -7,13 +7,11 @@
  */
 var toLowerCase = str => {
 
-    return Array.from(str).map((value, key) => {
-        let unicode = str.charCodeAt(key);
-        if (unicode >= 65 & unicode <= 90) {
-            return String.fromCharCode(unicode + 32);
-        } else {
-            return value;
-        }
+    return Array.from(str).map((char, index) => {
+        let unicode = str.charCodeAt(index);
+        return (unicode >= 65 & unicode <= 90)
+            ? String.fromCharCode(unicode + 32)
+            : char;
     }).join('');
 
 };
