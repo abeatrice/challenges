@@ -1,17 +1,10 @@
 /**
+ * flip an image pixels horizontally and invert it
  * @param {number[][]} image
  * @return {number[][]}
  */
 var flipAndInvertImage = function (image) {
-    let newImage = [];
-    image.forEach(row => {
-        let newRow = [];
-        row.forEach(pixel => {
-            newRow.unshift((pixel) ? 0 : 1);
-        });
-        newImage.push(newRow);
-    });
-    return newImage;
+    return image.map(row => row.reverse().map(pixel => (pixel) ? 0 : 1));
 };
 
-console.log(flipAndInvertImage([[1, 1, 0], [1, 0, 1], [0, 0, 0]]));
+console.log(flipAndInvertImage([[1, 1, 0], [1, 0, 1], [0, 0, 0]])); //[ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ] ]
