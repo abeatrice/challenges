@@ -4,16 +4,13 @@
  * @return {number}
  */
 var repeatedNTimes = function (A) {
-    let el = null;
-    A.forEach((n, i) => {
-        A.forEach((m, j) => {
-            if (n === m && i !== j) {
-                el = n;
+    for (i = 0; i < A.length; i++) {
+        for (j = i + 1; j < A.length; j++) {
+            if (A[i] == A[j]) {
+                return A[i];
             }
-        });
-    });
-
-    return el;
+        }
+    }
 };
 
 console.log(repeatedNTimes([1, 2, 3, 3])); //3
