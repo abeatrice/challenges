@@ -5,25 +5,22 @@
  * @return {number[]}
  */
 var sortedSquares = function (A) {
-    let squares = [];
+    let result = [];
+    let l = 0;
+    let r = A.length - 1;
+    let p = r;
 
-    A.forEach(n => {
-        squares.push(n * n);
-    });
-
-    for (i = 0; i < squares.length; i++) {
-        for (j = squares.length - 1; j >= i; j--) {
-            if (squares[i] > squares[j]) {
-                let temp = squares[i];
-                squares[i] = squares[j];
-                squares[j] = temp;
-            }
+    while (l <= r) {
+        if (A[l] ** 2 > A[r] ** 2) {
+            result[p--] = A[l++] ** 2;
+        } else {
+            result[p--] = A[r--] ** 2;
         }
     }
 
-    return squares;
+    return result;
 };
 
-console.log(sortedSquares([-4, -1, 0, 3, 10])); //[ 16, 1, 0, 9, 100 ] [0,1,9,16,100]
+console.log(sortedSquares([-4, -1, 0, 3, 10])); //[0,1,9,16,100]
 console.log(sortedSquares([-7, -3, 2, 3, 11])); //[4,9,9,49,121]
 console.log(sortedSquares([-3, -3, -2, 1])); //[1,4,9,9]
