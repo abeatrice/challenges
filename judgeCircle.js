@@ -17,19 +17,32 @@
  */
 var judgeCircle = function (moves) {
 
-    let map = new Map([
-        ['U', 0],
-        ['D', 0],
-        ['L', 0],
-        ['R', 0]
-    ]);
+    let x = 0;
+    let y = 0;
 
-    Array.from(moves).forEach(m => map.set(m, map.get(m) + 1));
+    for (i = 0; i < moves.length; i++) {
+        switch (moves[i]) {
+            case 'U':
+                y++;
+                break;
+            case 'D':
+                y--;
+                break;
+            case 'L':
+                x++;
+                break;
+            case 'R':
+                x--;
+                break;
+            default:
+                break;
+        }
+    }
 
-    return map.get('U') == map.get('D') && map.get('L') == map.get('R');
-
+    return x == 0 && y == 0;
 };
 
 
 console.log(judgeCircle("UD"));
 console.log(judgeCircle("LL"));
+console.log(judgeCircle("RLUURDDDLU"));
