@@ -11,7 +11,6 @@
  */
 
 /**
- * determine if 
  * @param {string} moves
  * @return {boolean}
  */
