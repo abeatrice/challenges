@@ -24,10 +24,6 @@ var subdomainVisits = function (cpdomains) {
         let arr = domain.split('.');
 
         while (arr.length > 0) {
-            // if (arr.join('.') == 'hal.team' || arr.join('.') == 'team') {
-            //     console.log(arr.join('.'), subDomains.get(arr.join('.')) || 0);
-            //     console.log('count: ', count);
-            // }
             let existingVisits = subDomains.get(arr.join('.')) || 0;
             subDomains.set(arr.join('.'), existingVisits + count);
             arr.shift();
